@@ -69,7 +69,7 @@ pipeline{
             steps{
                 script{
                     dir('K8S') {
-                       withKubeConfig(caCertificate: '', clusterName: 'EKS_CLOUD', contextName: '', credentialsId: 'k8s', namespace: 'uberapp', restrictKubeConfigAccess: false, serverUrl: 'https://BB5C219F0F374D6AEA1D7AACE667B191.gr7.us-east-1.eks.amazonaws.com') {
+                       withKubeConfig(caCertificate: '', clusterName: 'EKS_CLOUD', contextName: '', credentialsId: 'k8s', namespace: 'uberapp', restrictKubeConfigAccess: false, serverUrl: 'https://2CA872D2F9A4F1DB97BFF9B794B253E3.gr7.us-east-1.eks.amazonaws.com') {
                                 sh 'kubectl apply -f deployment.yml'
                                 sh 'kubectl apply -f service.yml'
                         }
