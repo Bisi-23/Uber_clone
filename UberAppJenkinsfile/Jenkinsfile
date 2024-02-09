@@ -53,16 +53,16 @@ pipeline{
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){
-                       sh "docker build -t uberapp ."
-                       sh "docker tag uber bisi23/uberapp:latest "
-                       sh "docker push bisi23/uberapp:latest "
+                       sh "docker build -t uber ."
+                       sh "docker tag uber bisi23/uber:latest "
+                       sh "docker push bisi23/uber:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image bisi23/uberapp:latest > trivyimage.json"
+                sh "trivy image bisi23/uber:latest > trivyimage.json"
             }
         }        
         stage('Deploy to kubernetes'){
